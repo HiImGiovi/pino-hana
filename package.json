@@ -1,0 +1,24 @@
+{
+  "name": "pino-hana",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "mocha --recursive",
+    "watch-test": "nodemon --exec npm run test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "pino": "^9.4.0",
+    "pino-abstract-transport": "^2.0.0",
+    "sonic-boom": "^4.1.0"
+  },
+  "devDependencies": {
+    "chai": "^5.1.1",
+    "mocha": "^10.7.3",
+    "nodemon": "^3.1.7"
+  }
+}
