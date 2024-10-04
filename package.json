@@ -12,9 +12,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@sap/hana-client": "^2.22.27",
     "pino": "^9.4.0",
     "pino-abstract-transport": "^2.0.0",
-    "sonic-boom": "^4.1.0"
+    "pump": "^3.0.2"
   },
   "devDependencies": {
     "chai": "^5.1.1",

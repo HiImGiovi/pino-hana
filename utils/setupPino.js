@@ -6,6 +6,9 @@ let logger;
 function setupPino() {
   const pinoHanaTransport = pino.transport({
     target: path.resolve("./index.js"),
+    options: {
+      hanaHost: "prova",
+    },
   });
   logger = pino(pinoHanaTransport);
 }
