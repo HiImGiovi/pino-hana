@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "migrate": "node utils/dbMigration.js",
     "test": "mocha --recursive",
     "watch-test": "nodemon --exec npm run test"
   },
@@ -13,9 +14,11 @@
   "description": "",
   "dependencies": {
     "@sap/hana-client": "^2.22.27",
+    "hdb": "^0.19.10",
     "pino": "^9.4.0",
     "pino-abstract-transport": "^2.0.0",
-    "pump": "^3.0.2"
+    "pump": "^3.0.2",
+    "sonic-boom": "^4.1.0"
   },
   "devDependencies": {
     "chai": "^5.1.1",

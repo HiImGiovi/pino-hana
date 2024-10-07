@@ -3,11 +3,18 @@ import path from "path";
 
 let logger;
 
-function setupPino() {
+async function setupPino() {
   const pinoHanaTransport = pino.transport({
     target: path.resolve("./index.js"),
     options: {
-      hanaHost: "prova",
+      connectionOptions: {
+        host: "localhost",
+        port: 39017,
+        user: "SYSTEM",
+        password: "Password1!",
+      },
+      schema: process.env.SCHEMA || "PINOHANA",
+      table: process.env.LOGTABLE || "LOGS",
     },
   });
   logger = pino(pinoHanaTransport);

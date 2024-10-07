@@ -1,5 +1,4 @@
 import hana from "@sap/hana-client";
-import { promisify } from "util";
 /**
  *@type {null|import("@sap/hana-client").ConnectionPool}
  */
@@ -11,9 +10,7 @@ let pool;
  * @param {import("@sap/hana-client").PoolOptions} poolOpts Pool options.
  */
 function init(connOpts = {}, poolOpts = {}) {
-  if (!pool) {
-    pool = hana.createPool(connOpts, poolOpts);
-  }
+  pool = hana.createPool(connOpts, poolOpts);
 }
 /**
  *
