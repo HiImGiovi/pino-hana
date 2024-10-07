@@ -34,7 +34,7 @@ export default async function (opts) {
       }
     },
     {
-      async close(err) {
+      async close() {
         destination.end();
         await once(destination, "close");
       },
@@ -56,7 +56,7 @@ function insertLog(dbClient, into, msg) {
       '${msg}',
       '${new Date().toISOString()}'
     )`;
-  dbClient.exec(query, (err, rows) => {
+  dbClient.exec(query, (err) => {
     if (err) console.error(err);
   });
 }

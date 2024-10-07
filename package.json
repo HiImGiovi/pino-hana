@@ -4,24 +4,32 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "lint": "eslint .",
     "migrate": "node utils/dbMigration.js",
     "test": "mocha --recursive",
     "watch-test": "nodemon --exec npm run test"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Simone Giovinazzo <sgiovinazz96@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HiImGiovi/pino-hana"
+  },
+  "license": "MIT",
   "description": "",
   "dependencies": {
-    "@sap/hana-client": "^2.22.27",
     "hdb": "^0.19.10",
     "pino": "^9.4.0",
     "pino-abstract-transport": "^2.0.0",
-    "pump": "^3.0.2",
     "sonic-boom": "^4.1.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@sap/hana-client": "^2.22.27",
     "chai": "^5.1.1",
+    "eslint": "^9.12.0",
+    "eslint-plugin-mocha": "^10.5.0",
+    "globals": "^15.10.0",
     "mocha": "^10.7.3",
     "nodemon": "^3.1.7"
   }

@@ -16,7 +16,7 @@ async function setupHana(
 
 async function clearHana() {
   const dbConnection = await getConnectionFromPool();
-  const result = clearTable(dbConnection, logTable);
+  clearTable(dbConnection, logTable);
   dbConnection.close();
   clearPool();
 }

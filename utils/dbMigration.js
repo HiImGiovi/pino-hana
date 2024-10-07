@@ -12,8 +12,8 @@ async function doMigrations() {
   };
   hanaInit(connectionOptions);
   const dbConnection = await getConnectionFromPool();
-  const schemaResult = createSchema(dbConnection, schema);
-  const tableCreationResult = createLogTable(dbConnection, {
+  createSchema(dbConnection, schema);
+  createLogTable(dbConnection, {
     tableName: logTable,
   });
 }
