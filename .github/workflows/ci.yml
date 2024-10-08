@@ -38,7 +38,6 @@ jobs:
             saplabs/hanaexpress:latest \
             --master-password Password1! \
             --agree-to-sap-license \
-            --hostname 3c423914c15f
       - name: Wait for SAP HANA startup to complete
         run: |
           echo "Waiting for SAP HANA Express to be ready (looking for 'Startup finished!')..."
