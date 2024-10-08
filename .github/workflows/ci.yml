@@ -11,13 +11,13 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    services:
-      hana:
-        image: saplabs/hanaexpress:latest
-        options: >-
-          --master-password Password1!
-          --agree-to-sap-license
-          --hostname 3c423914c15f
+    # services:
+    #   hana:
+    #     image: saplabs/hanaexpress:latest
+    #     options: >-
+    #       --master-password Password1!
+    #       --agree-to-sap-license
+    #       --hostname 3c423914c15f
 
     strategy:
       matrix:
@@ -27,6 +27,25 @@ jobs:
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+      - name: Start SAP HANA Express container
+        run: |
+          docker run -d --name hana \
+            -p 39013:39013 \
+            -p 39017:39017 \
+            -p 39041-39045:39041-39045 \
+            -p 1128-1129:1128-1129 \
+            -p 59013-59014:59013-59014 \
+            saplabs/hanaexpress:latest \
+            --master-password Password1! \
+            --agree-to-sap-license \
+            --hostname 3c423914c15f
+      - name: Wait for SAP HANA to be ready
+        run: |
+          until nc -z localhost 39013; do
+            echo "Waiting for SAP HANA Express to be ready..."
+            sleep 5
+          done
+          echo "SAP HANA Express is ready!"
       - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
