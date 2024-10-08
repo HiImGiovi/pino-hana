@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    paths-ignore:
+      - "*.md"
+  pull_request:
+    paths-ignore:
+      - "*.md"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      hana:
+        image: saplabs/hanaexpress:latest
+        options: >-
+          --master-password Password1!
+          --agree-to-sap-license
+          --hostname 3c423914c15f
+
+    strategy:
+      matrix:
+        node-version: [16, 18, 20, 22]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Setup Node ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies
+        run: npm ci
+      - name: Run db migrations
+        run: npm run migrate
+      - name: Run tests
+        run: npm run ci

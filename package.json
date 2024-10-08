@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "migrate": "node utils/dbMigration.js",
+    "ci": "mocha --recursive",
     "test": "mocha --recursive",
     "watch-test": "nodemon --exec npm run test"
   },
