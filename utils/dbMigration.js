@@ -44,12 +44,19 @@ function createLogTable(conn, { tableName = "PINOHANA.LOGS" }) {
             (
             ID NVARCHAR(40) PRIMARY KEY,
             MSG NVARCHAR(5000),
-            CREATEDAT TIMESTAMP
+            CREATEDAT TIMESTAMP,
+            LEVEL INT
             )`;
     return conn.exec(query);
   } catch (error) {
-    if (error.code === 288) console.log(`${tableName} ALREADY EXISTENT`);
-    else console.error(error);
+    if (error.code === 288) {
+      console.log(`${tableName} already existent, dropping and recreating`);
+      const dropQuery = `
+      DROP TABLE ${tableName}
+      `;
+      conn.exec(dropQuery);
+      createLogTable(conn, tableName);
+    } else console.error(error);
   }
 }
 

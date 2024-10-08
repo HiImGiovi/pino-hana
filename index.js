@@ -26,7 +26,7 @@ export default async function (opts) {
     async function (source) {
       for await (let obj of source) {
         const toDrain = !destination.write(obj.msg + "\n");
-        insertLog(hanaClient, `${schema}.${table}`, obj.msg);
+        insertLog(hanaClient, `${schema}.${table}`, obj.msg, obj.level);
         // This block will handle backpressure
         if (toDrain) {
           await once(destination, "drain");
@@ -42,19 +42,21 @@ export default async function (opts) {
   );
 }
 
-function insertLog(dbClient, into, msg) {
+function insertLog(dbClient, into, msg, level) {
   const query = `
     INSERT INTO ${into}
     (
       ID,
       MSG,
-      CREATEDAT
+      CREATEDAT,
+      LEVEL
     )
     VALUES
     (
       '${randomUUID()}',
       '${msg}',
-      '${new Date().toISOString()}'
+      '${new Date().toISOString()}',
+      '${level}'
     )`;
   dbClient.exec(query, (err) => {
     if (err) console.error(err);
