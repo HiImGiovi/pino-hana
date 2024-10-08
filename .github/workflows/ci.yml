@@ -41,7 +41,7 @@ jobs:
             --hostname 3c423914c15f
       - name: Wait for SAP HANA to be ready
         run: |
-          until nc -z localhost 39013; do
+          until nc -z localhost 39017; do
             echo "Waiting for SAP HANA Express to be ready..."
             sleep 5
           done
