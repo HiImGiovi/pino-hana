@@ -39,13 +39,14 @@ jobs:
             --master-password Password1! \
             --agree-to-sap-license \
             --hostname 3c423914c15f
-      - name: Wait for SAP HANA to be ready
+      - name: Wait for SAP HANA startup to complete
         run: |
-          until nc -z localhost 39017; do
-            echo "Waiting for SAP HANA Express to be ready..."
+          echo "Waiting for SAP HANA Express to be ready (looking for 'Startup finished!')..."
+          while ! docker logs hana 2>&1 | grep -q "Startup finished!"; do
+            echo "Still waiting for SAP HANA to finish starting up..."
             sleep 5
           done
-          echo "SAP HANA Express is ready!"
+          echo "SAP HANA Express startup completed!"
       - name: Setup Node ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
