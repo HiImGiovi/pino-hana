@@ -44,6 +44,8 @@ jobs:
           echo "Waiting for SAP HANA Express to be ready (looking for 'Startup finished!')..."
           while ! docker logs hana 2>&1 | grep -q "Startup finished!"; do
             echo "Still waiting for SAP HANA to finish starting up..."
+            echo "Current logs from SAP HANA container:"
+            docker logs --tail 10 hana 2>&1 | tee -a $LOG_FILE
             sleep 5
           done
           echo "SAP HANA Express startup completed!"
