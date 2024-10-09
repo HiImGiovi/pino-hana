@@ -15,14 +15,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    # services:
-    #   hana:
-    #     image: saplabs/hanaexpress:latest
-    #     options: >-
-    #       --master-password Password1!
-    #       --agree-to-sap-license
-    #       --hostname 3c423914c15f
-
     strategy:
       matrix:
         node-version: [16, 18, 20, 22]
