@@ -10,7 +10,17 @@
     "test": "mocha --recursive",
     "watch-test": "nodemon --exec npm run test"
   },
-  "keywords": [],
+  "keywords": [
+    "pino",
+    "sap",
+    "hana",
+    "log"
+  ],
+  "homepage": "https://github.com/HiImGiovi/pino-hana#readme",
+  "precommit": [
+    "lint",
+    "test"
+  ],
   "author": "Simone Giovinazzo <sgiovinazz96@gmail.com>",
   "repository": {
     "type": "git",
