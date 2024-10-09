@@ -64,4 +64,4 @@ LEVEL INT
 )
 ```
 
-For a full usage guide please refer to the [official pino documentation](https://getpino.io/#/)
+For a full usage guide please refer to the [official pino documentation](https://getpino.io/#/).
