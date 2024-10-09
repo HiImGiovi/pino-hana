@@ -27,7 +27,7 @@
     "url": "git+https://github.com/HiImGiovi/pino-hana"
   },
   "license": "MIT",
-  "description": "",
+  "description": "Pino transport to save Pino logs into SAP HANA Database",
   "dependencies": {
     "hdb": "^0.19.10",
     "pino": "^9.4.0",
