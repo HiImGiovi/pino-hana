@@ -10,14 +10,24 @@
     "test": "mocha --recursive",
     "watch-test": "nodemon --exec npm run test"
   },
-  "keywords": [],
+  "keywords": [
+    "pino",
+    "sap",
+    "hana",
+    "log"
+  ],
+  "homepage": "https://github.com/HiImGiovi/pino-hana#readme",
+  "precommit": [
+    "lint",
+    "test"
+  ],
   "author": "Simone Giovinazzo <sgiovinazz96@gmail.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HiImGiovi/pino-hana"
   },
   "license": "MIT",
-  "description": "",
+  "description": "Pino transport to save Pino logs into SAP HANA Database",
   "dependencies": {
     "hdb": "^0.19.10",
     "pino": "^9.4.0",
