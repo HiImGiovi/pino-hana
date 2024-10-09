@@ -35,6 +35,7 @@
     "sonic-boom": "^4.1.0"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.9",
     "@eslint/js": "^9.12.0",
     "@sap/hana-client": "^2.22.27",
     "chai": "^5.1.1",
