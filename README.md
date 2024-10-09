@@ -25,7 +25,7 @@ Install [pino](https://www.npmjs.com/package/pino) alongside with [pino-hana](ht
 npm i pino pino-hana
 ```
 
-Setup a pino logger in your codebase using the pino-hana transport like shown in the example
+Setup a pino logger in your codebase using the pino-hana transport like shown in the example:
 
 ```javascript
 const pino = require('pino')
