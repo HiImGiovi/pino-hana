@@ -26,9 +26,10 @@ jobs:
         run: npm ci
 
       - name: Create and publish a release with changesets
+        id: changesets
         uses: changesets/action@v1
         with:
-          publish: npm publish
+          publish: npx changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
