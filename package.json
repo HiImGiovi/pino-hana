@@ -24,7 +24,7 @@
   "author": "Simone Giovinazzo <sgiovinazz96@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HiImGiovi/pino-hana"
+    "url": "git+https://github.com/HiImGiovi/pino-hana.git"
   },
   "license": "MIT",
   "description": "Pino transport to save Pino logs into SAP HANA Database",
