@@ -31,7 +31,7 @@ Setup a pino logger in your codebase using the pino-hana transport like shown in
 const pino = require('pino')
 const logger = pino({
   transport: {
-    target: 'pino-hana'
+    target: 'pino-hana',
     options: {
       connectionOptions: {
         host: <hana db host>,
